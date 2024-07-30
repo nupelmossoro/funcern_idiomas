@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      inscricao:
+        one: Inscricao
+        other: Inscricoes
+    attributes:
+      inscricao:
+                id: ID 
+                nome: Nome 
+                sexo: Sexo
+                data_nascimento: Data de Nascimento
+                nome_pai: Nome do Pai
+                nome_mae: Nome da Mãe
+                rg: RG
+                cpf: CPF 
+                orgao_expedidor: Órgão Expedidor 
+                data_expedicao: Data Expedição
+                celular: Celular
+                telefone_residencial: Telefone Residencial
+                pagamento_matricula: Matricula Paga?
+                deleted_at: Deleted_at
+                created_at: Created_at 
+                updated_at: Updated_at 
+        

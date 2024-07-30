@@ -1,0 +1,47 @@
+<% remote = false if remote == nil %>
+<% id ||= Time.now.to_i %>
+
+
+<%= form_with(model: usuario, data: { turbo: remote  }, html: {class: 'form fv-plugins-bootstrap5 fv-plugins-framework'}) do |form| %>
+  <%= hidden_field_tag :remote, remote %>
+  <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.required' no label. -->
+  <div class="card-body border-top p-9">
+    <div class="row">   
+      <div class="col-lg-6 col-md-4 col-sm-12 ">
+        <div class="form-group">
+          <%= form.label :email, class: "form-label"  %>
+          <%= form.text_field :email, class: "form-control form-control-solid" %>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-12 ">
+        <div class="form-group">
+          <%= form.label :nome, class: "form-label"  %>
+          <%= form.text_field :nome, class: "form-control form-control-solid" %>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-12 ">
+        <div class="form-group">
+          <%= form.label :avatar, class: "form-label"  %>
+          <img id="avatar-preview" src="#" alt="Avatar Preview" style="display: none; width: 200px; height: 300px; object-fit: contain;"/>
+          <%= form.file_field :avatar, class: "form-control form-control-solid", id: "avatar-upload" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-end py-6 px-9">
+      <% unless remote %>
+          <%= link_to "<i class='las la-arrow-left'></i> #{t("helpers.links.back")}".html_safe, root_path, :class=> "d-inline-block btn btn-secondary me-2" %>
+      <% end %>
+      <%= render "usuarios/form_actions" %>
+  </div>
+<% end %>
+<script>
+  document.getElementById('avatar-upload').addEventListener('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      document.getElementById('avatar-preview').style.display = 'block';
+      document.getElementById('avatar-preview').src = event.target.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+</script>

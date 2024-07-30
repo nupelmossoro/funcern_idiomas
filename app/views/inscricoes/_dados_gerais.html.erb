@@ -1,0 +1,71 @@
+<div class="card-body border-top p-9">
+        <div class="row">       
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome, class: "form-label"  %>
+              <%= form.text_field :nome, class: "form-control form-control" %>
+            </div>
+          </div>    
+          <div class="col-lg-2 col-md-2 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :sexo, class: "form-label"  %><br>
+              <%= form.radio_button :sexo, 'masculino' %> Masculino
+              <%= form.radio_button :sexo, 'feminino' %> Feminino
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :data_nascimento, class: "form-label"  %>
+              <%= form.date_field :data_nascimento, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome_pai, class: "form-label"  %>
+              <%= form.text_field :nome_pai, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome_mae, class: "form-label"  %>
+              <%= form.text_field :nome_mae, class: "form-control form-control" %>
+            </div>
+          </div>   
+          <div class="col-lg-2 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :rg, class: "form-label"  %>
+              <%= form.text_field :rg, class: "form-control form-control" %>
+            </div>
+          </div>  
+          <div class="col-lg-2 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :orgao_expedidor, class: "form-label"  %>
+              <%= form.text_field :orgao_expedidor, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :data_expedicao, class: "form-label"  %>
+              <%= form.date_field :data_expedicao, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :cpf, class: "form-label"  %>
+              <%= form.text_field :cpf, class: "form-control form-control" %>
+            </div>
+          </div>    
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :celular, class: "form-label"  %>
+              <%= form.text_field :celular, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :telefone_residencial, class: "form-label"  %>
+              <%= form.text_field :telefone_residencial, class: "form-control form-control" %>
+            </div>
+          </div>
+        </div>
+    </div>

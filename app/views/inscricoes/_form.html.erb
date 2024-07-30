@@ -1,0 +1,91 @@
+<% remote = false if remote == nil %>
+<% id ||= Time.now.to_i %>
+
+
+<%= form_with(model: inscricao, data: { turbo: remote  }, html: {class: 'form fv-plugins-bootstrap5 fv-plugins-framework'}) do |form| %>
+    <%= hidden_field_tag :remote, remote %>
+    <!-- Note: Para adicionar campo obrigatório é só adicionar a classe '.required' no label. -->
+    <div class="card-body border-top p-9">
+        <div class="row">       
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome, class: "form-label"  %>
+              <%= form.text_field :nome, class: "form-control form-control" %>
+            </div>
+          </div>    
+          <div class="col-lg-6 col-md-6 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :sexo, class: "form-label"  %><br>
+              <%= form.radio_button :sexo, 'masculino' %> Masculino
+              <%= form.radio_button :sexo, 'feminino' %> Feminino
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :cpf, class: "form-label"  %>
+              <%= form.text_field :cpf, class: "form-control form-control" %>
+            </div>
+          </div>    
+          <div class="col-lg-3 col-md-3 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :rg, class: "form-label"  %>
+              <%= form.text_field :rg, class: "form-control form-control" %>
+            </div>
+          </div>  
+          <div class="col-lg-2 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :orgao_expedidor, class: "form-label"  %>
+              <%= form.text_field :orgao_expedidor, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :data_expedicao, class: "form-label"  %>
+              <%= form.date_field :data_expedicao, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :data_nascimento, class: "form-label"  %>
+              <%= form.date_field :data_nascimento, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome_pai, class: "form-label"  %>
+              <%= form.text_field :nome_pai, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :nome_mae, class: "form-label"  %>
+              <%= form.text_field :nome_mae, class: "form-control form-control" %>
+            </div>
+          </div>   
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :celular, class: "form-label"  %>
+              <%= form.text_field :celular, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :telefone_residencial, class: "form-label"  %>
+              <%= form.text_field :telefone_residencial, class: "form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :curso, class: "form-label"  %>
+              <%= form.collection_select :curso_id, Curso.all, :id, :text, {}, class: "form-control form-control" %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <% unless remote %>
+            <%= link_to "<i class='las la-arrow-left'></i> #{t("helpers.links.back")}".html_safe, inscricoes_path, :class=> "d-inline-block btn btn-secondary me-2" %>
+        <% end %>
+        <%= render "inscricoes/form_actions" %>
+    </div>
+<% end %>

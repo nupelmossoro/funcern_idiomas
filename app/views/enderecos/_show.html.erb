@@ -1,0 +1,60 @@
+<%- model_class = Endereco -%>
+
+<% resource ||= resource %>
+
+
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:cep) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cep) %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:logradouro) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:logradouro) %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:numero) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:numero) %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:bairro) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:bairro) %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
+</div>
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:estado) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:estado) %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:cidade) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cidade) %></span>
+    </div>
+  
+</div>
+
+<div class="row mb-7 mt-3">
+  <%= render partial: "audits/table", locals: {audits: resource.try(:own_and_associated_audits), show_collapse: 'show'} %>
+</div>
