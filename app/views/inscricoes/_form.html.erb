@@ -12,7 +12,7 @@
               <%= form.label :nome, class: "form-label"  %>
               <%= form.text_field :nome, class: "form-control form-control" %>
             </div>
-          </div>    
+          </div>      
           <div class="col-lg-6 col-md-6 col-sm-12 ">
             <div class="form-group">
               <%= form.label :sexo, class: "form-label"  %><br>
@@ -20,6 +20,12 @@
               <%= form.radio_button :sexo, 'feminino' %> Feminino
             </div>
           </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :cidade, class: "form-label"  %>
+              <%= form.text_field :cidade, class: "form-control form-control" %>
+            </div>
+          </div>  
           <div class="col-lg-3 col-md-3 col-sm-12 ">
             <div class="form-group">
               <%= form.label :cpf, class: "form-label"  %>
@@ -34,8 +40,8 @@
           </div>  
           <div class="col-lg-2 col-md-4 col-sm-12 ">
             <div class="form-group">
-              <%= form.label :orgao_expedidor, class: "form-label"  %>
-              <%= form.text_field :orgao_expedidor, class: "form-control form-control" %>
+              <%= form.label :orgao_expedidor,"Orgão Expeditor ",class: "form-label"  %>
+              <%= form.select :orgao_expedidor, Inscricao::ORGAO_EXPEDITOR, {}, class: "form-control form-control" %>
             </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-12 ">

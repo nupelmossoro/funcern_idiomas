@@ -15,21 +15,9 @@ class Curso < ApplicationRecord
     # relationships .............................................................
     has_many :inscricoes
     #enums
-    enum dias: {
-    segunda: "Segunda-Feira",
-    terca: "Terça-Feira",
-    quarta: "Quarta-Feira",
-    quinta: "Quinta-Feira",
-    sexta: "Sexta-Feira",
-    sabado: "Sábado",
-    domingo: "Domingo"
-    }
 
-    enum turno: {
-    manha: "Manhã",
-    tarde: "Tarde",
-    noite: "Noite"
-    }
+    DIAS = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
+    TURNO = ["Manhã", "Tarde", "Noite"]
     # validations ...............................................................
     # callbacks .................................................................
     # scopes ....................................................................
