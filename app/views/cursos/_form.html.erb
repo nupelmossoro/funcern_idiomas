@@ -31,6 +31,10 @@
             <%= form.select :turno, options_for_select(Curso.turnos.map { |k, v| [v, k] }), {}, class: "form-control form-control" %>
           </div>
         </div>
+         <div class="col-lg-6 col-md-4 col-sm-12">
+            <%= form.label :professor, class: "form-label"  %>
+            <%= form.text_field :professor, class: "form-control form-control" %>
+          </div>
         <div class="col-lg-6 col-md-4 col-sm-12 ">
           <div class="form-group">
             <%= form.label :valor, class: "form-label"  %>

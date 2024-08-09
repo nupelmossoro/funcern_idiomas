@@ -47,10 +47,11 @@
                     
                                     
                         <th><%= model_class.human_attribute_name(:turno) %></th>
+
+                        <th><%= model_class.human_attribute_name(:professor) %></th>
                     
-                                <th><%= model_class.human_attribute_name(:created_at) %></th>
-                <th><%= model_class.human_attribute_name(:updated_at) %></th>
-                <th class="text-end min-w-100px"><%= t("helpers.actions") %></th>
+                
+                <th class=min-w-100px><%= t("helpers.actions") %></th>
             </tr>
         </thead>
         <tbody class="text-gray-600 fw-semibold"></tbody>
@@ -98,10 +99,9 @@
                         	
                                             
                             { "data": "turno" },
+
+                            { "data": "professor" },
                         	
-                    	
-                    { "data": "created_at" },
-                    { "data": "updated_at" },
                     { "data": "opcoes", "orderable": false }
                 ],
             });

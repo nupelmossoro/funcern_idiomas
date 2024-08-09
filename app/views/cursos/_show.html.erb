@@ -35,13 +35,22 @@
     </div>
   
 </div>
+
+<div class="row mb-7">
+  
+    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:professor) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:professor) %></span>
+    </div>
+  
+</div>
+
 <div class="row mb-7">
     <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:valor) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:valor).format if resource.try(:valor) %></span>
     </div>
 </div>
-
 
 <div class="row mb-7 mt-3">
   <%= render partial: "audits/table", locals: {audits: resource.try(:own_and_associated_audits), show_collapse: 'show'} %>

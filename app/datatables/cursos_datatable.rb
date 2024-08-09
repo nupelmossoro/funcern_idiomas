@@ -43,6 +43,18 @@ class CursosDatatable
                             'updated_at' => column_updated_at(curso),
                         
                                             
+                                            
+                            'valor_cents' => column_valor_cents(curso),
+                        
+                                            
+                            'valor_currency' => column_valor_currency(curso),
+                        
+                                            
+                            'professor' => column_professor(curso),
+                        
+                                            
+                            'dias' => column_dias(curso),
+                        
                     
                     'opcoes' => column_opcoes(curso)
                 }
@@ -94,6 +106,34 @@ class CursosDatatable
                 end
             
                     
+                    
+                def column_valor_cents(curso)
+                    
+                        curso.try(:valor_cents)
+                    
+                end
+            
+                    
+                def column_valor_currency(curso)
+                    
+                        curso.try(:valor_currency)
+                    
+                end
+            
+                    
+                def column_professor(curso)
+                    
+                        curso.try(:professor)
+                    
+                end
+            
+                    
+                def column_dias(curso)
+                    
+                        curso.try(:dias)
+                    
+                end
+            
         
 
         
@@ -156,7 +196,7 @@ class CursosDatatable
         end
     
         def sort_column
-            columns = ["id", "idioma", "nivel", "dia", "turno", "created_at", "updated_at"]
+            columns = ["id", "idioma", "nivel", "dia", "turno", "created_at", "updated_at", "valor_cents", "valor_currency", "professor", "dias"]
             columns[params[:order]['0'][:column].to_i]
         end
 
