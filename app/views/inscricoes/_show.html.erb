@@ -5,7 +5,7 @@
 
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:nome) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:nome) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:nome) %></span>
     </div>
@@ -13,7 +13,7 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:sexo) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:sexo) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:sexo) %></span>
     </div>
@@ -21,15 +21,14 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:data_nascimento) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:data_nascimento) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_nascimento) %></span>
-    </div>
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_nascimento).try(:strftime, "%d/%m/%Y") %></span>
   
 </div>
-<div class="row mb-7">
+<div class="row mb-7 mt-8">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:cidade) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:cidade) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cidade) %></span>
     </div>
@@ -37,7 +36,7 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:nome_pai) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:nome_pai) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:nome_pai) %></span>
     </div>
@@ -45,7 +44,7 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:nome_mae) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:nome_mae) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:nome_mae) %></span>
     </div>
@@ -53,23 +52,23 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:rg) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:rg) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:rg) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= format_rg(resource.try(:rg)) %></span>
     </div>
   
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:cpf) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted  text-gray-800"><%= model_class.human_attribute_name(:cpf) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cpf) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%=  format_cpf(resource.try(:cpf)) %></span>
     </div>
   
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:orgao_expedidor) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:orgao_expedidor) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:orgao_expedidor) %></span>
     </div>
@@ -77,65 +76,42 @@
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:data_expedicao) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:data_expedicao) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_expedicao) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_expedicao).try(:strftime, "%d/%m/%Y") %></span>
     </div>
   
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:celular) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:celular) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:celular) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= format_celular(resource.try(:celular)) %></span>
     </div>
   
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:telefone) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:telefone_residencial) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:telefone) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= format_telefone_residencial(resource.try(:telefone_residencial)) %></span>
     </div>
   
 </div>
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:residencial) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:pagamento_matricula) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:residencial) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= format_pagamento_matricula(resource.try(:pagamento_matricula)) %></span>
     </div>
   
 </div>
+
 <div class="row mb-7">
   
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:forma_pagamento) %> </label>
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:curso) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:forma_pagamento) %></span>
-    </div>
-  
-</div>
-<div class="row mb-7">
-  
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:secretaria) %> </label>
-    <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:secretaria) %></span>
-    </div>
-  
-</div>
-<div class="row mb-7">
-  
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:data_pagamento) %> </label>
-    <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_pagamento) %></span>
-    </div>
-  
-</div>
-<div class="row mb-7">
-  
-    <label class="col-lg-4 fw-semibold text-muted"><%= model_class.human_attribute_name(:observacao) %> </label>
-    <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:observacao) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:curso).try(:idioma) %> - <%= resource.try(:curso).try(:nivel) %></span>
     </div>
   
 </div>

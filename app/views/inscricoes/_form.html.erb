@@ -13,11 +13,10 @@
               <%= form.text_field :nome, class: "form-control form-control" %>
             </div>
           </div>      
-          <div class="col-lg-6 col-md-6 col-sm-12 ">
+         <div class="col-lg-6 col-md-4 col-sm-12">
             <div class="form-group">
-              <%= form.label :sexo, class: "form-label"  %><br>
-              <%= form.radio_button :sexo, 'masculino' %> Masculino
-              <%= form.radio_button :sexo, 'feminino' %> Feminino
+              <%= form.label :sexo, class: "form-label" %>
+              <%= form.select :sexo, options_for_select([['Masculino', 'masculino'], ['Feminino', 'feminino']], selected: @inscricao.sexo), {}, class: "form-control form-control" %>
             </div>
           </div>
           <div class="col-lg-6 col-md-4 col-sm-12 ">
@@ -86,8 +85,14 @@
               <%= form.collection_select :curso_id, Curso.all, :id, :text, {}, class: "form-control form-control" %>
             </div>
           </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 mt-3">
+            <div class="form-check form-switchd-flex justify-content-end">
+              <%= form.label :pagamento_matricula, "Matrícula Paga?", class: "form-label me-2", for: "flexSwitchCheckDefault" %>
+              <%= form.check_box :pagamento_matricula, class: "form-check-input", role: "switch", id: "flexSwitchCheckDefault" %>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     <div class="card-footer d-flex justify-content-end py-6 px-9">
         <% unless remote %>
             <%= link_to "<i class='las la-arrow-left'></i> #{t("helpers.links.back")}".html_safe, inscricoes_path, :class=> "d-inline-block btn btn-secondary me-2" %>

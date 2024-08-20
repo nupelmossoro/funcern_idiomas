@@ -3,7 +3,7 @@ class CreateInscricoes < ActiveRecord::Migration[7.0]
     create_table :inscricoes, id: :uuid do |t|
       t.string :nome
       t.string :sexo
-      t.string :data_nascimento
+      t.date :data_nascimento
       t.string :nome_pai
       t.string :nome_mae
       t.string :rg

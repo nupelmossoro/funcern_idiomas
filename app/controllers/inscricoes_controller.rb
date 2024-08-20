@@ -4,9 +4,7 @@ class InscricoesController < ApplicationController
 
     # GET /inscricoes
     def index
-        unless request.format.in?(['html', 'js'])
-            @inscricoes = Inscricao.all
-        end
+        @inscricoes = Inscricao.all
         respond_to do |format|
             format.html
             format.json
@@ -101,4 +99,3 @@ class InscricoesController < ApplicationController
 
 
 end
-    

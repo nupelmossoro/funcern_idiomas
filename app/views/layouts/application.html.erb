@@ -64,5 +64,15 @@
   document.addEventListener('DOMContentLoaded', function(){
     var valor = document.getElementById('valor');
     VMasker(valor).maskMoney({precision: 2, separator: ',', delimiter: '.'});
+
+    var cpf = document.getElementById('cpf');
+    if (cpf) {
+      VMasker(cpf).maskPattern("999.999.999-99");
+    }
+
+    var rg = document.getElementById('rg');
+    if (rg) {
+      VMasker(rg).maskPattern("99.999.999-9");
+    }
   });
 </script>
