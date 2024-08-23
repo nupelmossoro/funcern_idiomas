@@ -1,6 +1,7 @@
 class InscricoesDatatable
     delegate :params, :h, :t, :link_to, :button_to, :content_tag,
         :inscricao_path,
+        :recibo_inscricao_path,
         :edit_inscricao_path, to: :@view
 
 
@@ -211,6 +212,12 @@ class InscricoesDatatable
                         data: { toggle: 'tooltip', placement: 'top' } }) do
                 content_tag(:i, '', class: 'las la-edit')
                 end).to_s
+
+            opcoes << (link_to(recibo_inscricao_path(inscricao, format: :pdf),
+                    { target: "_blank", remote: @remote, class: 'btn btn-icon btn-warning me-2 mb-2', title: 'Editar',
+                    data: { toggle: 'tooltip', placement: 'top' } }) do
+            content_tag(:i, '', class: 'las la-edit')
+            end).to_s
 
             opcoes << (button_to inscricao_path(inscricao),
                         method: :delete,

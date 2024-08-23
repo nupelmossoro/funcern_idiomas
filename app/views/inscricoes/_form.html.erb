@@ -16,15 +16,15 @@
          <div class="col-lg-6 col-md-4 col-sm-12">
             <div class="form-group">
               <%= form.label :sexo, class: "form-label" %>
-              <%= form.select :sexo, options_for_select([['Masculino', 'masculino'], ['Feminino', 'feminino']], selected: @inscricao.sexo), {}, class: "form-control form-control" %>
+              <%= form.select :sexo, options_for_select([['Masculino', 'masculino'], ['Feminino', 'feminino']], selected: @inscricao.sexo), { include_blank: true }, class: "form-control form-control" %>
             </div>
           </div>
           <div class="col-lg-6 col-md-4 col-sm-12 ">
             <div class="form-group">
               <%= form.label :cidade, class: "form-label"  %>
-              <%= form.text_field :cidade, class: "form-control form-control" %>
+              <%= form.collection_select :cidade, Cidade.order(:nome), :id, :nome, { include_blank: true }, {class: "form-control form-select"} %>
             </div>
-          </div>  
+          </div>    
           <div class="col-lg-3 col-md-3 col-sm-12 ">
             <div class="form-group">
               <%= form.label :cpf, class: "form-label"  %>

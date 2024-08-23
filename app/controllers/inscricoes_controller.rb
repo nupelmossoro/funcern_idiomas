@@ -1,6 +1,6 @@
 class InscricoesController < ApplicationController
     layout 'cruds'
-    before_action :set_inscricao, only: [:show, :edit, :update, :destroy]
+    before_action :set_inscricao, only: [:show, :edit, :update, :destroy, :recibo]
 
     # GET /inscricoes
     def index
@@ -82,6 +82,21 @@ class InscricoesController < ApplicationController
         respond_to do |format|
             format.json { render json: Inscricao.search(params[:search])  }
         end
+    end
+
+    def recibo
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: "recibo",
+          template: "inscricoes/recibo",
+          layout: 'layouts/pdf',
+          formats: [:html],
+          orientation: 'Portrait',
+          page_size: 'A4',
+          margin: { top: 10, bottom: 10, left: 10, right: 10 }
+        end
+      end
     end
 
     private

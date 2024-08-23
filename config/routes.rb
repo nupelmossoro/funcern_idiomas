@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       get 'search'
       post 'datatable'
     end
+    member do
+      get 'recibo'
+    end
   end
 
   resources :cursos do
