@@ -2,9 +2,14 @@
 
 <% remote ||=remote %>
 
+ <%= link_to recibo_inscricao_path(inscricao, format: :pdf), :class=> 'btn btn-info me-2', :remote => remote do %>
+    <i class="las la-dollar-sign"></i> Recibo
+<% end %>
+
  <%= link_to edit_inscricao_path(inscricao), :class=> 'btn btn-warning me-2', :remote => remote do %>
     <i class="las la-edit"></i> Editar
 <% end %>
+
 
 <%= button_to inscricao_path(inscricao), :remote=> remote,
     :method => 'delete',

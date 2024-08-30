@@ -1,29 +1,47 @@
-<div class="invoice-container">
-    <div class="image-container" style="float: left; padding-right: 20px;">
-      <img src="<%= asset_url('default-logo.png') %>" alt="Descrição da imagem">
-    </div>
-    <div class="invoice-header" style="float: left; padding-top: 20px;">
-      <h2>Fundação de Apoio à Educação e ao Desenvolvimento</h2>
-      <h2>Tecnológico de Rio Grande do Norte </h2>
-    </div>
-
-
-
-    <div class="container">
-      <h1 class="">Histórico de Leituras do Imóvel</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Leitura</th>
-            <th>Consumo</th>
-            <th>Valor do Consumo</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
-    </div>
+<div class="recibo">
+  <div id="image">
+    <img src="<%= asset_url('default-logo.png') %>" alt="Funcern Logo">
   </div>
-  
+  <div id="header">
+
+    <h2>
+      <u>Fundação de Apoio à Educação e ao Desenvolvimento</u>
+    </h2>
+
+      <h2 id="downside">
+        Tecnológico de Rio Grande do Norte 
+      </h2>
+    </div>
+
+
+  <div class="recibo_title">
+    <h1>
+      <u>RECIBO</u>
+    </h1>
+  </div>
+
+  <div class="recibo_content">
+    <p id="text">
+      Recebemos de <strong><%= @inscricao.nome.upcase %></strong> a importância de <%= @inscricao.curso.valor %>
+      (<%= @inscricao.curso.valor.to_i.to_words(locale: :pt_BR) %> reais), referente ao pagamento do curso de <strong><%= @inscricao.curso.idioma %> 
+      e a taxa de matrícula</strong>.
+    </p>
+  <p id="data-location">
+      Mossoró, <%= I18n.l(Time.now, format: "%d de %B de %Y") %>.
+  </div>
+
+
+  <div class="notes">
+    <p>
+      <strong>
+      <u>Observações:</u>
+      </strong>
+    </p>
+  <ul>
+    <li>Em caso de desistência, não será devolvido o valor referente à matrícula.</li>
+    <li>Após o início do curso, não é permitido o trancamento da matrícula.</li>
+    <li>O valor referente à matrícula não inclui o material didático.</li>
+    <li>A carga horária do curso é de 60 horas-aula.</li>
+  </ul>
+  </div>
+</div>

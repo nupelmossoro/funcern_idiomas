@@ -85,6 +85,7 @@ class InscricoesController < ApplicationController
     end
 
     def recibo
+      @inscricao.update(pagamento_matricula: true)
       respond_to do |format|
         format.html
         format.pdf do

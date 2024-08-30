@@ -213,11 +213,13 @@ class InscricoesDatatable
                 content_tag(:i, '', class: 'las la-edit')
                 end).to_s
 
+                
             opcoes << (link_to(recibo_inscricao_path(inscricao, format: :pdf),
-                    { target: "_blank", remote: @remote, class: 'btn btn-icon btn-warning me-2 mb-2', title: 'Editar',
+                    { target: "_blank", remote: @remote, class: 'btn btn-icon btn-info me-2 mb-2', title: 'Recibo',
                     data: { toggle: 'tooltip', placement: 'top' } }) do
-            content_tag(:i, '', class: 'las la-edit')
+            content_tag(:i, '', class: ' las la-dollar-sign')
             end).to_s
+
 
             opcoes << (button_to inscricao_path(inscricao),
                         method: :delete,

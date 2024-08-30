@@ -146,12 +146,12 @@
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="javascript:void(0);" class="menu-link px-5"><%= link_to 'Minha Conta', usuario_path(current_usuario.id), class: 'menu-link px-5'%></a>
+                            <%= link_to 'Minha Conta', usuario_path(current_usuario.id), class: 'menu-link px-5'%></a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="javascript:void(0);" class="menu-link px-5"><%= link_to 'Sair', destroy_usuario_session_path, method: :delete, class: 'menu-link px-5' %></a>
+                            <%= link_to 'Sair', destroy_usuario_session_path, method: :delete, class: 'menu-link px-5' %></a>
                         </div>
                         <!--end::Menu item-->
                     </div>

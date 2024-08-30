@@ -30,7 +30,7 @@
   
     <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:cidade) %> </label>
     <div class="col-lg-8">
-      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cidade) %></span>
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:cidade).try(:nome) %></span>
     </div>
   
 </div>
