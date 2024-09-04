@@ -22,9 +22,29 @@
 
   <div class="recibo_content">
     <p id="text">
-      Recebemos de <strong><%= @inscricao.nome.upcase %></strong> a importância de <%= @inscricao.curso.valor %>
-      (<%= @inscricao.curso.valor.to_i.to_words(locale: :pt_BR) %> reais), referente ao pagamento do curso de <strong><%= @inscricao.curso.idioma %> 
+      Recebemos de <strong><%= @inscricao.nome.upcase %></strong> a importância de 
+      <% if @inscricao.forma_pagamento == "À vista" %>
+        <%= @inscricao.curso.parcelado %>
+        (<%= @inscricao.curso.parcelado.to_i.to_words(locale: :pt_BR) %> reais),
+      na forma de pagamento
+      <strong> <%= @inscricao.forma_pagamento %>. </strong>
+      Referente ao pagamento do curso de <strong><%= @inscricao.curso.idioma %> 
       e a taxa de matrícula</strong>.
+
+      <% elsif @inscricao.forma_pagamento== "Parcelado" %>
+        <%= @inscricao.curso.valor %> 
+        (<%= @inscricao.curso.valor.to_i.to_words(locale: :pt_BR) %> reais), 
+      na forma de pagamento 
+      <strong> <%= @inscricao.forma_pagamento %>. </strong>
+      Referente ao pagamento do curso de <strong><%= @inscricao.curso.idioma %> 
+      e a taxa de matrícula</strong>.
+
+      <% else %>
+      <strong>
+        FORMA DE PAGAMENTO NÃO SELECIONADA
+      </strong>
+      <% end %>
+  
     </p>
   <p id="data-location">
       Mossoró, <%= I18n.l(Time.now, format: "%d de %B de %Y") %>.

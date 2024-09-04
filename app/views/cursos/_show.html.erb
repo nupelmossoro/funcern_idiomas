@@ -52,6 +52,13 @@
     </div>
 </div>
 
+<div class="row mb-7">
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:parcelado) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:parcelado).format if resource.try(:parcelado) %></span>
+    </div>
+</div>
+
 <div class="row mb-7 mt-3">
   <%= render partial: "audits/table", locals: {audits: resource.try(:own_and_associated_audits), show_collapse: 'show'} %>
 </div>

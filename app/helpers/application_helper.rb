@@ -19,6 +19,17 @@ module ApplicationHelper
     pagamento_matricula ? "Sim" : "Não"
   end
 
+  def format_forma_pagamento(forma_pagamento)
+    case forma_pagamento
+    when 'À vista'
+      'À vista'
+    when 'Parcelado'
+      'Parcelado'
+    else
+      ''
+    end
+  end
+
   def active_header_menu?(controllers)
     controllers.each do |controller|
       next unless controller[0] == params[:controller]

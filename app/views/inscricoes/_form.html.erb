@@ -40,7 +40,7 @@
           <div class="col-lg-2 col-md-4 col-sm-12 ">
             <div class="form-group">
               <%= form.label :orgao_expedidor,"Orgão Expeditor ",class: "form-label"  %>
-              <%= form.select :orgao_expedidor, Inscricao::ORGAO_EXPEDITOR, {}, class: "form-control form-control" %>
+              <%= form.select :orgao_expedidor, Inscricao::ORGAO_EXPEDITOR, { include_blank: true }, class: "form-control form-control" %>
             </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-12 ">
@@ -82,11 +82,17 @@
           <div class="col-lg-6 col-md-4 col-sm-12 ">
             <div class="form-group">
               <%= form.label :curso, class: "form-label"  %>
-              <%= form.collection_select :curso_id, Curso.all, :id, :text, {}, class: "form-control form-control" %>
+              <%= form.collection_select :curso_id, Curso.all, :id, :text, { include_blank: true }, class: "form-control form-control" %>
             </div>
           </div>
-          <div class="col-lg-6 col-md-4 col-sm-12 mt-3">
-            <div class="form-check form-switchd-flex justify-content-end">
+          <div class="col-lg-6 col-md-4 col-sm-12 ">
+            <div class="form-group">
+              <%= form.label :forma_pagamento, class: "form-label"  %>
+              <%= form.select :forma_pagamento, options_for_select([["À vista"], ["Parcelado"]], selected: @inscricao.forma_pagamento), {include_blank: true}, class:"form-control form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12 mt-3 mt-10">
+            <div class="form-check form-switchd-flex justify-content-end ">
               <%= form.label :pagamento_matricula, "Matrícula Paga?", class: "form-label me-2", for: "flexSwitchCheckDefault" %>
               <%= form.check_box :pagamento_matricula, class: "form-check-input", role: "switch", id: "flexSwitchCheckDefault" %>
             </div>

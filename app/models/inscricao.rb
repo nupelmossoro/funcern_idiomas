@@ -11,6 +11,7 @@ class Inscricao < ApplicationRecord
     enum sexo: { Masculino: "masculino", Feminino: "feminino" }
     #enum
     ORGAO_EXPEDITOR = [:AC, :AL, :AP, :AM, :BA, :CE, :DF, :ES, :GO, :MA, :MT, :MS, :MG, :PA, :PB, :PR, :PE, :PI, :RJ, :RN, :RS, :RO, :RR, :SC, :SP, :SE, :TO]
+    FORMA_PAGAMENTO = ["À Vista", :Parcelado]
     # relationships .............................................................
     belongs_to :curso
     # validations ...............................................................

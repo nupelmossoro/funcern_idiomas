@@ -11,6 +11,7 @@ class Curso < ApplicationRecord
     # security (i.e. attr_accessible) ...........................................
 
     monetize :valor_cents
+    monetize :parcelado_cents
 
     # relationships .............................................................
     has_many :inscricoes
