@@ -84,6 +84,14 @@
 </div>
 <div class="row mb-7">
   
+    <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:data_nascimento) %> </label>
+    <div class="col-lg-8">
+      <span class="fw-bold fs-6 text-gray-800"><%= resource.try(:data_nascimento).try(:strftime, "%d/%m/%Y") %></span>
+    </div>
+  
+</div>
+<div class="row mb-7">
+  
     <label class="col-lg-4 fw-semibold text-muted text-gray-800"><%= model_class.human_attribute_name(:celular) %> </label>
     <div class="col-lg-8">
       <span class="fw-bold fs-6 text-gray-800"><%= format_celular(resource.try(:celular)) %></span>

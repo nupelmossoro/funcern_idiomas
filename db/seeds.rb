@@ -14,3 +14,5 @@ ActiveRecord::Base.transaction do
 end
 
 SeedMigration::Migrator.bootstrap()
+
+Usuario.create!([email: "admin@gmail.com", password: "12345678"])
