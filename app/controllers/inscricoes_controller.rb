@@ -109,7 +109,7 @@ class InscricoesController < ApplicationController
         # Never trust parameters from the scary internet, only allow the white list through.
         def inscricao_params
             if params[:inscricao]
-                    params.require(:inscricao).permit(:curso_id, :nome, :sexo, :data_nascimento, :cidade,
+                    params.require(:inscricao).permit(:curso_id, :nome, :sexo, :data_nascimento, :cidade_id,
                      :nome_pai, :nome_mae, :rg, :cpf, :orgao_expedidor, :data_expedicao,
                      :celular, :telefone_residencial,  :pagamento_matricula, :forma_pagamento)
             end
