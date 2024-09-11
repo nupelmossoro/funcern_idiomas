@@ -177,7 +177,7 @@ class InscricoesDatatable
 
                 def column_curso_id(inscricao)
 
-                        inscricao.try(:curso_id)
+                        "#{inscricao.try(:curso).try(:idioma)} Nível #{inscricao.try(:curso).try(:nivel)}"
 
                 end
 
@@ -242,6 +242,8 @@ class InscricoesDatatable
 
         def fetch
             str_query = query
+            str_query << '.where(curso_id: params[:curso_id])' if params[:curso_id].present?
+
             params[:columns].each do |column|
                 str_query << ".where(#{column[1][:data]}: '#{column[1][:search][:value]}')" if column[1][:search][:value].present?
             end

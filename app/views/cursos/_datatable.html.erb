@@ -49,6 +49,8 @@
                         <th><%= model_class.human_attribute_name(:turno) %></th>
 
                         <th><%= model_class.human_attribute_name(:professor) %></th>
+
+                        <th>Ano/Semestre</th>
                     
                 
                 <th class=min-w-100px><%= t("helpers.actions") %></th>
@@ -60,6 +62,16 @@
 <!--end::Datatable-->
 <script type="text/javascript">
     "use strict";
+
+    // Função para formatar a data no formato "YYYY.1" ou "YYYY.2"
+    function formatYearSemester(dateString) {
+        if (!dateString) return '';
+
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const semester = date.getMonth() < 6 ? '1' : '2';
+        return `${year}.${semester}`;
+    }
 
     // Class definition
     var KTDatatablesServerSide = function () {
@@ -101,6 +113,13 @@
                             { "data": "turno" },
 
                             { "data": "professor" },
+
+                            { 
+                                "data": "created_at",
+                                "render": function(data, type, row) {
+                                    return formatYearSemester(data);
+                                }
+                            },
                         	
                     { "data": "opcoes", "orderable": false }
                 ],

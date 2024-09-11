@@ -19,6 +19,15 @@ module ApplicationHelper
     pagamento_matricula ? "Sim" : "Não"
   end
 
+  def format_year_semester(date)
+    return unless date
+
+    year = date.strftime("%Y")
+    semester = date.month <= 6 ? '1' : '2'
+    "#{year}.#{semester}"
+  end
+
+
   def format_forma_pagamento(forma_pagamento)
     case forma_pagamento
     when 'À vista'

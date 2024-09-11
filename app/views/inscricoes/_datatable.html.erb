@@ -39,7 +39,8 @@
                         <th><%= model_class.human_attribute_name(:sexo) %></th>
                         <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
                         <th><%= model_class.human_attribute_name(:cpf) %></th>
-                        <th><%= model_class.human_attribute_name(:celular) %></th>                              
+                        <th><%= model_class.human_attribute_name(:celular) %></th>
+                        <th><%= model_class.human_attribute_name(:curso) %></th>                              
                         <th><%= model_class.human_attribute_name(:pagamento_matricula) %></th>
                     
                 <th class="text-end min-w-100px"><%= t("helpers.actions") %></th>
@@ -85,6 +86,7 @@
                             { "data": "data_nascimento" },
                             { "data": "cpf" },
                             { "data": "celular" },
+                            { "data": "curso_id" },
                             { "data": "pagamento_matricula" },
                         	
                     { "data": "opcoes", "orderable": false }
